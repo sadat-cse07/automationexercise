@@ -1,7 +1,7 @@
 # 🚀Assesment Test
 
 ## 📌 Overview
-This repository contains **Cypress automation tests** that run on **multiple browsers (Chrome & Firefox)** with **group testing, parallel execution, and detailed reporting** using **GitHub Actions**.
+This repository contains **Automation tests** that run on **multiple browsers (Chrome & Firefox)** with **group testing, parallel execution, and detailed reporting** using **GitHub Actions**.
 
 ## 🚀 Features
 ✅ Assesment Test E2E Testing  
@@ -19,7 +19,12 @@ This repository contains **Cypress automation tests** that run on **multiple bro
 📦 assesment-automation
  ┣ 📂 cypress
  ┃ ┣ 📂 e2e              # Test cases
- ┃ ┣ 📂 pages            # Page Object Model files
+ ┃   ┣ 📂 TestCase1
+         📂 pages
+         📂 tests           # Page Object Model files
+      ┣ 📂 TestCase2
+         📂 pages
+         📂 tests
  ┃ ┣ 📂 reports          # Test reports (Mochawesome)
  ┃ ┣ 📂 screenshots      # Screenshots for failed tests
  ┣ 📜 cypress.config.js  # Cypress configuration
