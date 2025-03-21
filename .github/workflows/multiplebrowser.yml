@@ -20,5 +20,11 @@ jobs:
         with:
           browser: ${{ matrix.browser }}
         env:
-            CYPRESS_BROWSER: ${{ matrix.browser }}
-            CYPRESS_HEADLESS: 1 # Enable headless mode
+          CYPRESS_BROWSER: ${{ matrix.browser }}
+          CYPRESS_HEADLESS: 1 # Enable headless mode
+      - name: Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mochaawsome HTML Report
+          path: cypress/reports
