@@ -1,15 +1,15 @@
-name: Smoke Test
+name: ProductSearch Test
 on: push
 jobs:
-  test-smoke:
+  test-search:
     runs-on: ubuntu-24.04
     steps:
-      - name: Smoke Test
+      - name: Product Test
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          command: npm run test:smoke
+          command: npm run test:search
           
