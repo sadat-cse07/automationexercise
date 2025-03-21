@@ -1,12 +1,12 @@
-# 🚀Assesment
+# 🚀Assesment Test
 
 ## 📌 Overview
 This repository contains **Cypress automation tests** that run on **multiple browsers (Chrome & Firefox)** with **group testing, parallel execution, and detailed reporting** using **GitHub Actions**.
 
 ## 🚀 Features
-✅ Cypress E2E Testing  
+✅ Assesment Test E2E Testing  
 ✅ Multi-Browser Support (Chrome & Firefox)  
-✅ Group Testing (Smoke, Sanity, Regression)  
+✅ Group Testing (Smoke, Regression)  
 ✅ Parallel Test Execution  
 ✅ Mochawesome Report Generation  
 ✅ CI/CD Integration with GitHub Actions  
