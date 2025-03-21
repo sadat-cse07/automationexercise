@@ -4,11 +4,11 @@ jobs:
   test-smoke:
     runs-on: ubuntu-24.04
     steps:
-      - name: Smoke Test
+      - name: Checkout
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
+      - name: Smoke Test
         uses: cypress-io/github-action@v6
         with:
           command: npm run test:smoke
