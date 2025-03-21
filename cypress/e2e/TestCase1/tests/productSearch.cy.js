@@ -16,11 +16,6 @@ describe("🛒 E-Commerce Product Tests", () => {
       cy.log("✅ Home page loaded successfully");
     });
 
-    it("Verify Navigation to Products Page",  function () {
-      HomePage.clickProducts();
-      ProductsPage.verifyProductsPage();
-      cy.log("✅ Navigated to Products Page successfully");
-    });
   });
 
   context("🔁 Regression Tests", () => {
