@@ -1,0 +1,41 @@
+name: Parallal Test
+on: push
+jobs:
+  search-run:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run search:run
+
+      - name: Test Report-search Page
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+            name: Mochaawsome HTML Report-Search Page
+            path: cypress/reports    
+    
+  cart-run:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run cart:run
+    
+      - name: Test Report-cart Page
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mochaawsome HTML Report-cart page
+          path: cypress/reports 
+
