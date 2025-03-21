@@ -1,7 +1,7 @@
 name: Parallal Test
 on: push
 jobs:
-  search-run:
+  test-search:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -11,7 +11,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          command: npm run search:run
+          command: npm run test:search
 
       - name: Test Report-search Page
         if: always()
@@ -20,7 +20,7 @@ jobs:
             name: Mochaawsome HTML Report-Search Page
             path: cypress/reports    
     
-  cart-run:
+  test-cart:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -30,7 +30,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          command: npm run cart:run
+          command: npm run test:cart
     
       - name: Test Report-cart Page
         if: always()
