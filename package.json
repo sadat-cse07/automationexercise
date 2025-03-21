@@ -20,6 +20,10 @@
     "test:chrome": "cypress run --browser chrome --headless",
     "test:firefox": "cypress run --browser firefox --headless",
     "test:edge": "cypress run --browser edge --headless",
-    "test:parallel": "npm-run-all --parallel test:chrome test:firefox test:edge"
+    "test:parallel": "npm-run-all --parallel test:chrome test:firefox test:edge",
+    "cypress:merge": "mochawesome-merge --reportDir cypress/reports/mocha > cypress/reports/mocha/report.json",
+    "cypress:report": "marge cypress/reports/mocha/report.json -f report -o cypress/reports/mocha",
+    "cypress:report:open": "open cypress/reports/mocha/report.html",
+    "cypress:ci": "npm run cypress:run && npm run cypress:merge && npm run cypress:report"
   }
 }

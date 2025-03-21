@@ -1,27 +1,23 @@
 const { defineConfig } = require("cypress");
-const mochawesome = require("cypress-mochawesome-reporter/plugin");
 
 module.exports = defineConfig({
+  reporter: "cypress-mochawesome-reporter",
+  reporterOptions: {
+    reportDir: "cypress/reports",
+    overwrite: false,
+    html: true,
+    json: true,
+    charts: true,
+    reportPageTitle: "E-Commerce Test Report",
+  },
   e2e: {
     setupNodeEvents(on, config) {
-      mochawesome(on);
-      return config;
+      // implement node event listeners here
+      require("cypress-mochawesome-reporter/plugin")(on);
     },
-    baseUrl: "http://automationexercise.com",
+    specPattern: "cypress/e2e/**/*.cy.js",
     defaultCommandTimeout: 10000,
-    watchForFileChanges: false,
-    // retries: 2,
-    video: false,
-    reporter: "mochawesome",
-    reporterOptions: {
-      reportDir: "cypress/reports",
-      overwrite: false,
-      html: true,
-      json: true,
-      charts: true,
-      reportPageTitle: "E-Commerce Test Report",
-    },
-    numTestsKeptInMemory: 0,
-    experimentalSessionAndOrigin: true,
+    video: true,
+    screenshotOnRunFailure: true,
   },
 });

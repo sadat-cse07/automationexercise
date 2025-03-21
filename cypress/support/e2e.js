@@ -17,3 +17,10 @@
 import './commands'
 
 import 'cypress-mochawesome-reporter/register';
+
+Cypress.on("test:after:run", (test, runnable) => {
+    if (test.state === "failed") {
+      const screenshotPath = `cypress/screenshots/${Cypress.spec.name}/${test.title}.png`;
+      addContext({ test }, screenshotPath);
+    }
+  });
