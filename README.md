@@ -1,4 +1,4 @@
-# 🚀 Cypress Multi-Browser Automation
+# 🚀Assesment
 
 ## 📌 Overview
 This repository contains **Cypress automation tests** that run on **multiple browsers (Chrome & Firefox)** with **group testing, parallel execution, and detailed reporting** using **GitHub Actions**.
@@ -134,7 +134,74 @@ This project is integrated with **GitHub Actions** to run Cypress tests on multi
 
 ### 📌 GitHub Actions Workflow
 ```yaml
-name: Cypress Multi-Browser Test
+name: Assessment Test
+on: push
+jobs:
+  cypress-run:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+
+      - name: Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mochaawsome HTML Report
+          path: cypress/reports
+
+
+### 📌 GitHub Actions Workflow-parallel
+
+ name: Parallal Test
+on: push
+jobs:
+  test-search:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Search Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run test:search
+
+      - name: Test Report-search Page
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+            name: Mochaawsome HTML Report-Search Page
+            path: cypress/reports    
+    
+  test-cart:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cart Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run test:cart
+    
+      - name: Test Report-cart Page
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mochaawsome HTML Report-cart page
+          path: cypress/reports 
+
+
+ ### 📌 GitHub Actions Workflow-multiple browser
+
+        name: Multiple Browser Test
 on: push
 
 jobs:
@@ -142,9 +209,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        browser: [chrome, firefox]
-        group: [smoke, regression]
-        shard: [1, 2]
+        browser: [chrome, firefox] # Run tests on both Chrome and Firefox
 
     steps:
       - name: Checkout repository
@@ -153,12 +218,66 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress tests on ${{ matrix.browser }} for ${{ matrix.group }} group
+      - name: Run Cypress tests on ${{ matrix.browser }}
         uses: cypress-io/github-action@v6
         with:
           browser: ${{ matrix.browser }}
-          headless: true
-          env: group=${{ matrix.group }}
-          shard: ${{ matrix.shard }}
+        env:
+          CYPRESS_BROWSER: ${{ matrix.browser }}
+          CYPRESS_HEADLESS: 1 # Enable headless mode
+      - name: Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mochaawsome HTML Report
+          path: cypress/reports
+
+ ### 📌 GitHub Actions Workflow-smoke test
+
+      name: Smoke Test
+on: push
+jobs:
+  test-smoke:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Smoke Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run test:smoke
+      - name: Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+            name: Mochaawsome HTML Report
+            path: cypress/reports
+
+
+ ### 📌 GitHub Actions Workflow-regression test
+
+       name: Regression Test
+on: push
+jobs:
+  test-regression:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Regression Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run test:regression
+      - name: Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+              name: Mochaawsome HTML Report
+              path: cypress/reports      
+
 
 
