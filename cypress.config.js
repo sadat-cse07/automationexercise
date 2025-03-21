@@ -16,8 +16,10 @@ module.exports = defineConfig({
     reporterOptions: {
       reportDir: "cypress/reports",
       overwrite: false,
-      html: true, // Change to true to generate an HTML report
+      html: true,
       json: true,
+      charts: true,
+      reportPageTitle: "E-Commerce Test Report",
     },
     numTestsKeptInMemory: 0,
     experimentalSessionAndOrigin: true,
