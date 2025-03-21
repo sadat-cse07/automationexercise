@@ -1,0 +1,24 @@
+name: Multiple Browser Test
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        browser: [chrome, firefox] # Run tests on both Chrome and Firefox
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests on ${{ matrix.browser }}
+        uses: cypress-io/github-action@v6
+        with:
+          browser: ${{ matrix.browser }}
+        env:
+            CYPRESS_BROWSER: ${{ matrix.browser }}
+            CYPRESS_HEADLESS: 1 # Enable headless mode
