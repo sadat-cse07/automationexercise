@@ -1,6 +1,6 @@
 class HomePage {
   visit() {
-    cy.visit("http://automationexercise.com");
+    cy.visit("/");
   }
   verifyHomePage() {
     cy.get('a[href="/"]').should("be.visible");

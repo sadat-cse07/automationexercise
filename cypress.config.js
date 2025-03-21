@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  
   reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
     reportDir: "cypress/reports",
@@ -19,5 +20,8 @@ module.exports = defineConfig({
     defaultCommandTimeout: 10000,
     video: true,
     screenshotOnRunFailure: true,
+    baseUrl: "http://automationexercise.com",
+    retries:2
   },
+
 });

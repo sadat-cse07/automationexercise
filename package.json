@@ -14,7 +14,7 @@
     "test:smoke": "cypress run --env grep='🔥 Smoke Tests' --headless",
     "test:regression": "cypress run --env grep='🔁 Regression Tests' --headless",
     "test:parallelsr": "npm-run-all --parallel test:smoke test:regression",
-    "test:search": "cypress run --spec 'cypress/e2e/TestCase1/tests/productSearchTest.cy.js' --headless",
+    "test:search": "cypress run --spec 'cypress/e2e/TestCase1/tests/productSearch.cy.js' --headless",
     "test:cart": "cypress run --spec 'cypress/e2e/TestCase2/tests/cartTest.cy.js' --headless",
     "test:parallel-search-cart": "npm-run-all --parallel test:search test:cart",
     "test:chrome": "cypress run --browser chrome --headless",
