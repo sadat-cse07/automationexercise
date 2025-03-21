@@ -4,7 +4,7 @@ jobs:
   test-search:
     runs-on: ubuntu-24.04
     steps:
-      - name: Checkout
+      - name: Search Test
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
@@ -23,7 +23,7 @@ jobs:
   test-cart:
     runs-on: ubuntu-24.04
     steps:
-      - name: Checkout
+      - name: Cart Test
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
