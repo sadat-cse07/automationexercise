@@ -4,7 +4,6 @@
 This repository contains **Automation tests** that run on **multiple browsers (Chrome & Firefox)** with **group testing, parallel execution, and detailed reporting** using **GitHub Actions**.
 
 🛠️ Technology Used
-
     {
   "devDependencies": {
     "@faker-js/faker": "^9.6.0",
