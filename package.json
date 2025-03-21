@@ -11,7 +11,7 @@
   "scripts": {
     "cypress:run": "cypress run",
     "cypress:open": "cypress open",
-    "test:smoke": "cypress run --env grep='🔥 Smoke Tests' --headless",
+    "test:smoke": "cypress run --env grep='🔥 smoke' --headless",
     "test:regression": "cypress run --env grep='🔁 Regression Tests' --headless",
     "test:parallelsr": "npm-run-all --parallel test:smoke test:regression",
     "test:search": "cypress run --spec 'cypress/e2e/TestCase1/tests/productSearch.cy.js' --headless",
