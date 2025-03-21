@@ -3,6 +3,21 @@
 ## 📌 Overview
 This repository contains **Automation tests** that run on **multiple browsers (Chrome & Firefox)** with **group testing, parallel execution, and detailed reporting** using **GitHub Actions**.
 
+🛠️ Technology Used
+
+    {
+  "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
+    "cypress": "^14.2.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
+
+
 ## 🚀 Features
 ✅ Assessment Test E2E Testing  
 ✅ Multi-Browser Support (Chrome & Firefox)  
